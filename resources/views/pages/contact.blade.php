@@ -1,0 +1,7 @@
+@extends('layouts.master')
+
+@section('content')
+    <h1 class="text-center">contact</h1>
+    <p class="text-center">Selamat datang di halaman Contact kami.</p>
+
+@endsection
