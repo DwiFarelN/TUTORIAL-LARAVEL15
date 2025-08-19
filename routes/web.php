@@ -1,31 +1,30 @@
 <?php
 
+use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 
+// Route untuk halaman utama (beranda)
 Route::get('/', function () {
     return view('pages.beranda');
+    // Menampilkan view 'beranda' saat user mengakses URL '/'
 });
 
+// Route untuk halaman about (tentang kami)
 Route::get('/about', function () {
-    $Biodata = [
-        'Nama' => 'Farel Dwi',
-        'Umur' => 15.0,
-        'Kelas' => 'XII RPL',
-        'Sekolah' => 'SMK Antarika 1 Sidoarjo',
-        'Alamat' => 'Jl. Rajawali.Gedangan, Sidoarjo',
-    ];
-    return view('pages.about')->with('Biodata', $Biodata);
+    return view('pages.about', [
+        'nama' => 'Kink Reyhan',
+        'umur' => 999,
+        'alamat' => 'Isekai ',
+        // Mengirim data 'nama', 'umur', dan 'alamat' ke view 'about'
+    ]);
 });
 
-Route::get('/about/{id}', function ($id){
-    return view('pages.detail',[
-        "nomer" =>$id
-  ]);
-});
+// Route untuk halaman contact (kontak)
+Route::view('/contact', 'pages.contact');
+// Menampilkan view 'contact' saat user mengakses URL '/contact'
 
-Route::get('/contact', function () {
-    return view('pages.contact');
-});
-Route::get('/product', function () {
-    return view('pages.detail');
-});
+// satu controller untuk banyak methodD
+Route::get('/product',[ProdukController::class, 'index']);// read data menampilkan data produk
+
+Route::get('/product/create',[ProdukController::class, 'create']);// menampiplkan halaman form data
+Route::post('/product',[ProdukController::class, 'store']);// menyimpan data produk ke database
