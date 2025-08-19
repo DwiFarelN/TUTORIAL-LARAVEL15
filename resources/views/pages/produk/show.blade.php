@@ -12,6 +12,11 @@
         <b>Alamat : </b> {{$data_toko['alamat']}} <br>
         <b>Type Toko : </b> {{$data_toko['type']}}
     </div>
+    @if (session('message'))
+        <div class="alert alert-primary">
+            {{ session('message') }}
+        </div>
+    @endif
 
     <div class="card">
         <div class="card-header">

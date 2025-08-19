@@ -12,9 +12,9 @@ Route::get('/', function () {
 // Route untuk halaman about (tentang kami)
 Route::get('/about', function () {
     return view('pages.about', [
-        'nama' => 'Kink Reyhan',
-        'umur' => 999,
-        'alamat' => 'Isekai ',
+        'nama' => 'Farel Dwi',
+        'umur' => 111,
+        'alamat' => 'yaudah ',
         // Mengirim data 'nama', 'umur', dan 'alamat' ke view 'about'
     ]);
 });
